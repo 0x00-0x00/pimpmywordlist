@@ -13,7 +13,7 @@ import unicodedata
 
 
 def remove_accents(input_str):
-    nfkd_form = unicodedata.normalize('NFKD', input_str.encode())
+    nfkd_form = unicodedata.normalize('NFKD', input_str)
     only_ascii = nfkd_form.encode('ASCII', 'ignore')
     return only_ascii
 
@@ -52,7 +52,7 @@ class PimpMyWordlist(object):
         return open(file, 'r')
 
     def _mutate(self, w):
-        w = remove_accents(w)
+        #w = remove_accents(w)
         return [w.lower(), w.upper(), capitalize(w), UpAnDdOwN(w), UpAnDdOwN(w, n=1)]
 
 
