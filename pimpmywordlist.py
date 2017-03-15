@@ -52,7 +52,7 @@ class PimpMyWordlist(object):
         return open(file, 'r')
 
     def _mutate(self, w):
-        return [w.lower(), w.upper(), capitalize(w), UpAnDdOwN(w)]
+        return [w.lower(), w.upper(), capitalize(w), UpAnDdOwN(w), UpAnDdOwN(w, n=1)]
 
 
     def _pimp(self, n):
