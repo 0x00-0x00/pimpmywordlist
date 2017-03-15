@@ -13,7 +13,7 @@ import unicodedata
 
 
 def remove_accents(input_str):
-    nfkd_form = unicodedata.normalize('NFKD', input_str)
+    nfkd_form = unicodedata.normalize('NFKD', input_str.encode())
     only_ascii = nfkd_form.encode('ASCII', 'ignore')
     return only_ascii
 
