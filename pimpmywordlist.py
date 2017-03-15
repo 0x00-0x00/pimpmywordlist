@@ -52,6 +52,7 @@ class PimpMyWordlist(object):
         return open(file, 'r')
 
     def _mutate(self, w):
+        w = remove_accents(w)
         return [w.lower(), w.upper(), capitalize(w), UpAnDdOwN(w), UpAnDdOwN(w, n=1)]
 
 
