@@ -10,6 +10,7 @@ import itertools
 import os
 import sys
 import unicodedata
+import time
 
 
 def remove_accents(input_str):
@@ -59,11 +60,12 @@ class PimpMyWordlist(object):
     def _pimp(self, n):
         charset = list("0987654321_")
         for line in self.file.readlines():
-            line = line.replace("\n", "")  # Tira o new line
+            line = str(line.replace("\n", "")).replace("\r", "")  # Tira o new line
             for mutated_word in self._mutate(line):
                 print(mutated_word)
-                for p in itertools.product(charset, repeat=int(n)):
-                    print(''.join([mutated_word, ''.join(p)]))
+                for i in range(1, int(n) + 1):
+                    for p in itertools.product(charset, repeat=int(i)):
+                        print(mutated_word + ''.join(p))
         return 0
 
 
